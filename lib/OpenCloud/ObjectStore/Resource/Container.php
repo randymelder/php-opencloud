@@ -605,6 +605,11 @@ class Container extends AbstractContainer
                 $this->cdn = null;
             }
         } catch (ClientErrorResponseException $e) {
+            // to-do: log more appropriately
+            error_log("ClientErrorResponseException in ".__FILE__." ".__CLASS__."::".__FUNCTION__."()");
+            error_log($e->getMessage());
+            error_log($e->getResponse());
+            error_log($e->getTraceAsString());
         }
     }
 }
